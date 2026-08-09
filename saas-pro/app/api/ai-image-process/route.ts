@@ -280,7 +280,7 @@ async function processAutoTag(publicId: string) {
             result.info?.detection?.object_detection?.data || {};
 
         const detectedObjects: string[] = [];
-        for (const [model, data] of Object.entries(detectionData)) {
+        for (const data of Object.values(detectionData)) {
             if (data && typeof data === 'object' && 'tags' in data) {
                 const modelTags = (data as { tags: Record<string, unknown> })
                     .tags;

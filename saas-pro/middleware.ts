@@ -20,12 +20,12 @@ export default clerkMiddleware(async (auth, req) => {
 
   //   if not logged in
 
-  if (!userId) {
-    if (!isPublicRoute(req) && !isPublicApiRoute(req)) {
-      return NextResponse.redirect(new URL("/sign-in", req.url));
+  if (!userId && !isPublicApiRoute(req)) {
+    if (isApiRequest) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    if (isApiRequest && !isPublicApiRoute(req)) {
+    if (!isPublicRoute(req)) {
       return NextResponse.redirect(new URL("/sign-in", req.url));
     }
   }

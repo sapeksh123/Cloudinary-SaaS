@@ -266,7 +266,7 @@ async function processFaceDetection(
             });
     }
 
-    faces.forEach((face, index) => {
+    faces.forEach((face) => {
         const attrs = face.attributes;
 
         if (attrs.glasses && attrs.glasses !== 'NoGlasses') {

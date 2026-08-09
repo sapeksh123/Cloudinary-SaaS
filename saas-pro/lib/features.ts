@@ -8,7 +8,6 @@ import {
     FileTextIcon,
     BrainIcon,
     UsersIcon,
-    LockIcon,
 } from 'lucide-react';
 
 export interface Feature {
