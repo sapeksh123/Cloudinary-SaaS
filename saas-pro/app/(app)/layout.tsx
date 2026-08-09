@@ -53,9 +53,9 @@ export default function AppLayout({
                                 <MenuIcon />
                             </label>
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 flex justify-start">
                             <Link href="/" onClick={handleLogoClick}>
-                                <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer flex items-center gap-2 px-2">
+                                <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer flex items-center justify-start gap-2 px-2">
                                     <Image
                                         src="/logo.png"
                                         alt="Cloudinary Showcase"
@@ -87,13 +87,6 @@ export default function AppLayout({
                                         {user.username ||
                                             user.emailAddresses[0].emailAddress}
                                     </span>
-                                    <button
-                                        onClick={() => setShowLogoutConfirm(true)}
-                                        className="btn btn-ghost btn-circle"
-                                    >
-                                        <LogOutIcon className="h-6 w-6" />
-                                    </button>
-
                                 </>
                             )}
                         </div>
@@ -148,13 +141,14 @@ export default function AppLayout({
                     className="drawer-overlay"
                 ></label>
                 <aside className="bg-base-200 w-64 h-full flex flex-col">
-                    <div className="flex items-center justify-center py-4">
+                    <div className="flex items-center justify-center py-6 px-4">
                         <Image
                             src="/logo.png"
                             alt="Cloudinary Showcase"
-                            width={44}
-                            height={44}
-                            className="h-11 w-11 object-contain"
+                            width={80}
+                            height={80}
+                            className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
+                            priority
                         />
                     </div>
                     <div className="flex flex-col flex-grow overflow-y-auto">

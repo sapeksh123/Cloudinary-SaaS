@@ -66,7 +66,9 @@ export default function Home() {
                     </button>
                 </div>
             </main>
-            <p className="text-gray-500">@2025 CloudSaaS</p>
+            <p className="text-gray-500">
+                &copy; {new Date().getFullYear()} CloudSaaS
+            </p>
         </div>
     );
 }
