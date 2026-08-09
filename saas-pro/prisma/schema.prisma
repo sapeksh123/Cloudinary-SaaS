@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id             String   @id @default(cuid())
+  userId         String?
+  title          String
+  description    String?
+  publicId       String
+  originalSize   String
+  compressedSize String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  duration       Float
+
+  @@index([userId])
+}
+
+model Image {
+  id                   String   @id @default(cuid())
+  userId               String?
+  title                String
+  description          String?
+  publicId             String
+  originalSize         String
+  fileType             String
+  tags                 String[]
+  extractedText        String?
+  hasBackgroundRemoved Boolean  @default(false)
+  isEnhanced           Boolean  @default(false)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  aiCaption            String?
+  objectDetection      Json?
+  qualityLevel         String?
+  qualityScore         Float?
+  watermarkDetected    String?
+  aiVisionGeneral      Json?
+  aiVisionModeration   Json?
+  aiVisionTags         Json?
+  tokensUsed           Int?
+  faceCount            Int?
+  facesBoundingBoxes   Json?
+  facialAttributes     Json?
+  facialLandmarks      Json?
+  hasFaces             Boolean  @default(false)
+
+  @@index([userId])
+}
+
+model Document {
+  id                String   @id @default(cuid())
+  userId            String?
+  title             String
+  description       String?
+  originalPublicId  String
+  pdfPublicId       String?
+  thumbnailPublicId String?
+  originalSize      String
+  fileType          String
+  conversionStatus  String   @default("pending")
+  pageCount         Int?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([userId])
+}
