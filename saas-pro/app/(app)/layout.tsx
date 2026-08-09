@@ -44,31 +44,25 @@ export default function AppLayout({
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
                 <header className="w-full bg-base-200">
-                    <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="navbar max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex-nowrap gap-1">
                         <div className="flex-none lg:hidden">
                             <label
                                 htmlFor="sidebar-drawer"
-                                className="btn btn-square btn-ghost drawer-button"
+                                className="btn btn-square btn-ghost btn-sm sm:btn-md drawer-button"
                             >
-                                <MenuIcon />
+                                <MenuIcon className="h-5 w-5" />
                             </label>
                         </div>
-                        <div className="flex-1 flex justify-start">
-                            <Link href="/" onClick={handleLogoClick}>
-                                <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer flex items-center justify-start gap-2 px-2">
-                                    <Image
-                                        src="/logo.png"
-                                        alt="Cloudinary Showcase"
-                                        width={32}
-                                        height={32}
-                                        className="h-8 w-8 object-contain"
-                                        priority
-                                    />
-                                    Cloudinary Showcase
+                        <div className="flex-1 flex justify-start min-w-0">
+                            <Link href="/" onClick={handleLogoClick} className="min-w-0">
+                                <div className="btn btn-ghost normal-case font-bold tracking-tight cursor-pointer flex items-center justify-start gap-2 px-1 sm:px-2 min-w-0">
+                                    <span className="text-base sm:text-xl lg:text-2xl whitespace-nowrap truncate">
+                                        Cloudinary Showcase
+                                    </span>
                                 </div>
                             </Link>
                         </div>
-                        <div className="flex-none flex items-center space-x-4">
+                        <div className="flex-none flex items-center gap-2 sm:gap-4">
                             {user && (
                                 <>
                                     <div className="avatar">
@@ -83,7 +77,7 @@ export default function AppLayout({
                                             />
                                         </div>
                                     </div>
-                                    <span className="text-sm truncate max-w-xs lg:max-w-md">
+                                    <span className="hidden sm:inline text-sm truncate max-w-[140px] md:max-w-xs lg:max-w-md">
                                         {user.username ||
                                             user.emailAddresses[0].emailAddress}
                                     </span>

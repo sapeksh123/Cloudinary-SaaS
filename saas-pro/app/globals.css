@@ -121,6 +121,8 @@ body {
     --pc: 0 0% 100% !important;
     --primary: #3448C5 !important;
     --primary-content: #ffffff !important;
+    --foreground: #171717 !important;
+    --background: #ffffff !important;
 }
 
 [data-theme="dark"] {
@@ -128,6 +130,8 @@ body {
     --pc: 0 0% 100% !important;
     --primary: #5B6FD8 !important;
     --primary-content: #ffffff !important;
+    --foreground: #ededed !important;
+    --background: #0a0a0a !important;
 }
 
 /* Additional force overrides - Light theme */
