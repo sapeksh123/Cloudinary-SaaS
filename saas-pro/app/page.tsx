@@ -1,4 +1,6 @@
 'use client';
+import Image from 'next/image';
+
 export default function Home() {
     const goToLogin = () => (window.location.href = '/sign-in');
     const goToSignup = () => (window.location.href = '/sign-up');
@@ -11,7 +13,14 @@ export default function Home() {
                 className={` rounded-3xl shadow-3xl p-8 sm:p-16 max-w-2xl w-full text-center transition-all duration-500  backdrop-blur-lg bg-opacity-80 relative z-10 hover:shadow-4xl`}
             >
                 <div className="flex justify-center">
-                    <i className="fa-regular fa-image text-5xl text-[#312ed9] transition mb-10"></i>
+                    <Image
+                        src="/logo.png"
+                        alt="Cloud SaaS"
+                        width={96}
+                        height={96}
+                        className="h-24 w-24 object-contain mb-10"
+                        priority
+                    />
                 </div>
 
                 <h1
